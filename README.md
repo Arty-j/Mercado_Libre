@@ -19,3 +19,5 @@ This project exemplifies how the Prophet model can be used to forecast future bu
 5. Forecast Revenu by using Timeseries Modeling
 
 # Step 1: Gathering Data and Finding Unusal Patterns
+**Data for this project is located in the Resources Folder**
+1- Import the data from the csv files, google_hourly_search_trends.csv
