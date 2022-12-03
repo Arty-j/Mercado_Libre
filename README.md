@@ -98,13 +98,13 @@ future_mercado_trends = model_mercado_trends.make_future_dataframe(periods=2000,
 2-The requested timeframe for the forcast was the coming quarter (90Days), so the model was called, fit, and used to predict our forecasted sales revenue. 
 3- Once the data is visualized the sales revenue trend becomes obvious.
 
-![forecasted_revenue]((./images/forecast_revenue.png)
+![forecasted_revenue](./images/forecast_revenue.png)
 
 
 4- Forecasting the actual revenue numbers required we re-run the model with an expanded forecasted time period to 145 days. (our past revenue data only continues until the middle of May, so the model was re-run using a 145 Day future forecast period)
 
 `mercado_sales_prophet_future = mercado_sales_prophet_model.make_future_dataframe(periods=145, freq="D")`
 
-![Q3_sales_forecast]((./images/Q3_sales_forecast.png)
+![Q3_sales_forecast](./images/Q3_sales_forecast.png)
 
 5-Final Analysis is possible by comparing the information gathered in the trends data forecast and the sales data forecast. The prophet model picks up on general trends in the historical data and forecasts it into the future.  However, it must be tempered by looking at sentiment, and world-weide events.
