@@ -76,4 +76,35 @@ weekday_avg = df_mercado_trends.groupby(groupby_weekday).mean()
 ![early 2020_plot](./images/df_corr.png)
 
 # Step 4: Create a Timeseries Model with Prophet
-1-
+1-Using the data from the google search trends a new dataframe was created and re-organized to fit the parameters needed by the model.
+2-The prophet model function is stored in a variable, then fit to the data, and finally used to make a futures dataframe for the next 90 days.
+```model_mercado_trends = Prophet()
+model_mercado_trends.fit(mercado_prophet_df)
+future_mercado_trends = model_mercado_trends.make_future_dataframe(periods=2000, freq='H')
+```
+
+3-The model then is called to predict the future performance variables with estimated confidence intervals of 80%
+`forecast_mercado_trends = model_mercado_trends.predict(future_mercado_trends)`
+4- Once visualized this forecasted data indicated a dip in trend during the forecasted time period.
+![forecasted_plot](./images/forecast_vis.png)
+
+5- The model's plot components function plots various paramters of the data for a closer look at the forecasted values.
+`figures_mercado_trends = model_mercado_trends.plot_components(forecast_mercado_trends)`
+
+![forecasted_components](./images/forecast_components.png)
+
+# Step 5: Forecasted Revenue by using Timeseries Modeling
+1- Using the same techniques as noted above for the trends forecasting, a revenue data csv file was loaded, and configured to fit properly into the Prophet model.
+2-The requested timeframe for the forcast was the coming quarter (90Days), so the model was called, fit, and used to predict our forecasted sales revenue. 
+3- Once the data is visualized the sales revenue trend becomes obvious.
+
+![forecasted_revenue]((./images/forecast_revenue.png)
+
+
+4- Forecasting the actual revenue numbers required we re-run the model with an expanded forecasted time period to 145 days. (our past revenue data only continues until the middle of May, so the model was re-run using a 145 Day future forecast period)
+
+`mercado_sales_prophet_future = mercado_sales_prophet_model.make_future_dataframe(periods=145, freq="D")`
+
+![Q3_sales_forecast]((./images/Q3_sales_forecast.png)
+
+5-Final Analysis is possible by comparing the information gathered in the trends data forecast and the sales data forecast. The prophet model picks up on general trends in the historical data and forecasts it into the future.  However, it must be tempered by looking at sentiment, and world-weide events.
