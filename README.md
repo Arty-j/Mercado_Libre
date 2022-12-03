@@ -105,6 +105,7 @@ future_mercado_trends = model_mercado_trends.make_future_dataframe(periods=2000,
 
 `mercado_sales_prophet_future = mercado_sales_prophet_model.make_future_dataframe(periods=145, freq="D")`
 
+
 ![Q3_sales_forecast](./images/Q3_sales_forecast.png)
 
-5-Final Analysis is possible by comparing the information gathered in the trends data forecast and the sales data forecast. The prophet model picks up on general trends in the historical data and forecasts it into the future.  However, it must be tempered by looking at sentiment, and world-weide events.
+5-Final Analysis is possible by comparing the information gathered in the google trends data forecast and the sales data forecast. The prophet model picks up on general trends in the historical data and forecasts it into the future.  However, this forecasted data must be tempered by looking at sentiment, and world-wide events.
